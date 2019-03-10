@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <!-- Bootstrap CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <!-- jquery script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+  <!-- our stylsheet -->
+  <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+  
+
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+  </style>
+
+
+</head>
+
+<body>
+
+    <div id="floating-panel">
+        <input id="address" type="textbox" value="Berkeley, California">
+        <input id="submit" type="button" value="Geocode">
+      </div>
+
+  <!-- Target div for placement of Googlmap -->
+    <div id="map"></div>
+
+
+
+
+
+    <!-- Login slash sign form -->
+ <div class="container">
+  <div class="row mb-3">
+      <div class="col-12">
+          <label for="usr">Username:</label>
+          <input type="text" class="form-control" id="usr">
+      </div>
+  </div>
+  <div class="row mb-3">
+      <div class="col-12">
+          <label for="usr">New Location Name:</label>
+          <input type="text" class="form-control" id="usr">
+      </div>
+  </div>
+  <div class="row mb-3">
+      <div class="col-12">
+          <label for="checkbox">Location Category:</label>
+          <label class="checkbox-inline"><input type="checkbox" value="">Park</label>
+          <label class="checkbox-inline"><input type="checkbox" value="">Restaurant</label>
+          <label class="checkbox-inline"><input type="checkbox" value="">Drive-Through</label>
+      </div>
+  </div>
+
+  <div class="row mb-3">
+      <div class="col-12">
+          <div class="row mb-3">
+              <div class="col-12">
+                  <label for="inputAddress">Address</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+
+          </div>
+          <div class="row mb-3">
+              <div class="col-6">
+                  <div class="form-group">
+                      <label for="inputCity">City</label>
+                      <input type="text" class="form-control" id="inputCity">
+                  </div>
+              </div>
+              <div class="col-3">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+              </div>
+              <div class="col-3">
+
+                  <label for="state" class="control-label">State</label>
+                  <select class="form-control" id="state" name="state">
+                      <option value="">N/A</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DC">District of Columbia</option>
+                      <option value="DE">Delaware</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="IA">Iowa</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MD">Maryland</option>
+                      <option value="ME">Maine</option>
+                      <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MT">Montana</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NY">New York</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="PR">Puerto Rico</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VA">Virginia</option>
+                      <option value="VT">Vermont</option>
+                      <option value="WA">Washington</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WY">Wyoming</option>
+                  </select>
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+  <div class="row">
+      <div class="col-12">
+          <div class="row mb-3">
+              <div class="col-12">
+                  <label for="comment">Comment:</label>
+                  <textarea class="form-control" rows="5" id="comment"></textarea>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-12">
+                  <button type="submit" class="btn btn-dark  btn-block">Submit</button>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+  <!--So, here we need to add a click event that takes the input values and adds them to our Firebase.-->
+  
+</div>
+
+
+  </div>
+
+  <!-- Link to api keys -->
+<script src="./assets/javascript/config.js"></script>
+
+
+<!-- mock data for store locations -->
+<script src="./assets/javascript/store-location.js"></script>
+
+
+<!-- Additional required Bootstrap scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
