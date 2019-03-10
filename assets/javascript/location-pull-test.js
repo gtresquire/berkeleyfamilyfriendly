@@ -95,3 +95,46 @@ function writeReviewData(review) {
     });
 }
 
+// let position;
+
+// // now we retrieve the lat and long of San Francisco from firebase
+// database.ref("/location/"+place.name).once("value", function(snapshot) {
+//     position = snapshot.val().position;
+//     console.log(position);
+// }).then(() => {
+//   // after retrieving the value from firebase
+//   // we create the map
+//   let map = createMap(position);
+
+//   // after creating the map, place the marker
+//   let marker = createMarker(position, map, "Hello San Franccisco!");
+
+// }).catch((error) => {
+//   console.log("an error occurred")
+//   console.log(error)
+// });
+
+
+function createMap(centerPos) {
+    let map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: centerPos
+    });
+    let geocoder = new google.maps.Geocoder();
+
+    document.getElementById('submit').addEventListener('click', function() {
+        geocodeAddress(geocoder, map);
+    });
+
+    return map;
+}
+
+function createMarker(pos, map, title) {
+    let marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+        title: title
+    });
+
+    return marker;
+}

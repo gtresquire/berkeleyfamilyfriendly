@@ -62,27 +62,17 @@
         database.ref("/location/"+place.name).once("value", function(snapshot) {
             position = snapshot.val().position;
             console.log(position);
-        }).then(() => {
-          // after retrieving the value from firebase
-          // we create the map
-          let map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
-            // centers the map at San Francisco
-            center: position
-          });
-          let geocoder = new google.maps.Geocoder();
 
-          document.getElementById('submit').addEventListener('click', function() {
-            geocodeAddress(geocoder, map);
-          });
+        // database.ref().once() returns a "promise",
+        // by using "then", we are stating that we want to perform the following code
+        //   after firebase has fulfilled the promise.
+        }).then(() => {
+          // after retrieving the value from firebase we create the map
+          let map = createMap(position);
 
           // after creating the map, place the marker
-          let marker = new google.maps.Marker({
-            // tells google maps to place the marker at San Francisco
-            position: position,
-            map: map,
-            title: 'Hello San Francisco!'
-          });
+          let marker = createMarker(position, map, "Hello San Franccisco!");
+
         }).catch((error) => {
           console.log("an error occurred")
           console.log(error)
