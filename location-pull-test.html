@@ -60,11 +60,8 @@
 
         // now we retrieve the lat and long of San Francisco from firebase
         database.ref("/location/"+place.name).once("value", function(snapshot) {
-
             position = snapshot.val().position;
             console.log(position);
-
-          
         }).then(() => {
           // after retrieving the value from firebase
           // we create the map
