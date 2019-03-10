@@ -52,37 +52,52 @@
     <div id="map"></div>
     <script>
 
+      // runs during google maps api call back
       function initMap() {
 
-        sfPos = getPosition("san francisco");
-        
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: {lat: 37.869061, lng: -122.270462 }
-        });
-        var geocoder = new google.maps.Geocoder();
+        // create a variable to store the position of our marker
+        let position;
 
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map);
-        });
+        // now we retrieve the lat and long of San Francisco from firebase
+        database.ref("/location/"+place.name).once("value", function(snapshot) {
 
-        console.log("creating marker during initMap()");
-        
-        console.log(sfPos);
+            position = snapshot.val().position;
+            console.log(position);
 
-        var marker = new google.maps.Marker({
-          position: {lat: 37.869061, lng: -122.270462},
-          map: map,
-          title: 'Hello World!'
+          
+        }).then(() => {
+          // after retrieving the value from firebase
+          // we create the map
+          let map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            // centers the map at San Francisco
+            center: position
+          });
+          let geocoder = new google.maps.Geocoder();
+
+          document.getElementById('submit').addEventListener('click', function() {
+            geocodeAddress(geocoder, map);
+          });
+
+          // after creating the map, place the marker
+          let marker = new google.maps.Marker({
+            // tells google maps to place the marker at San Francisco
+            position: position,
+            map: map,
+            title: 'Hello San Francisco!'
+          });
+        }).catch((error) => {
+          console.log("an error occurred")
+          console.log(error)
         });
       }
 
       function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
+        let address = document.getElementById('address').value;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
+            let marker = new google.maps.Marker({
               map: resultsMap,
               position: results[0].geometry.location
             });

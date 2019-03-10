@@ -95,18 +95,3 @@ function writeReviewData(review) {
     });
 }
 
-
-// gets the position stored in firebase that is at the specified "place"
-// place must be a string
-function getPosition(place) {
-    let position;
-    // now we retrieve the lat and long of SF from firebase
-    database.ref("/location/"+place).on("value", function(snapshot) {
-        // console.log(snapshot.val());
-        position = snapshot.val().position;
-        console.log(position);
-    });
-
-    console.log("returning position");
-    return position;
-}
