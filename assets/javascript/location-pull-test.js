@@ -51,6 +51,12 @@ function writeLocationData(place) {
         position: place.position,
         type: place.type,
         reviews: place.reviews
+    }, function(error) {
+        if(error) {
+            console.log("failed to write " + place.name + " to firebase backend");
+        } else {
+            console.log("successfully wrote " + place.name + " to firebase backend");
+        }
     });
 }
 
@@ -63,6 +69,12 @@ function writeUserData(user) {
         email: user.email,
         // picture: "", // can we store images on firebase?
         reviews: user.reviews
+    }, function(error) {
+        if(error) {
+            console.log("failed to write " + user.name + " to firebase backend");
+        } else {
+            console.log("successfully wrote " + user.name + " to firebase backend");
+        }
     });
 }
 
@@ -74,6 +86,12 @@ function writeReviewData(review) {
         location: review.location, // name of place
         rating: review.rating, // num between 1 and 5, integer
         message: review.message // the review of the place, string
+    }, function(error) {
+        if(error) {
+            console.log("failed to write review to firebase backend");
+        } else {
+            console.log("successfully wrote review to firebase backend");
+        }
     });
 }
 
