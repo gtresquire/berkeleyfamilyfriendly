@@ -153,3 +153,31 @@ function geocodeAddress(geocoder, resultsMap, location) {
       }
     });
 }
+
+// runs during google maps api call back
+function initMap() {
+
+    // create a variable to store the position of our marker
+    // let position;
+    let locations;
+
+    // grab the list of locations from firebase.
+    database.ref("/location").once("value", function(snapshot) {
+      locations = snapshot.val();
+      console.log(locations);
+    }).then(() => {
+      let map = createMap(locations["berkeley"].position);
+      console.log(locations["berkeley"]);
+
+      let geocoder = new google.maps.Geocoder();
+
+      for (i in locations) {
+        // console.log(locations[i]);
+
+        geocodeAddress(geocoder, map, locations[i]);
+      }
+    }).catch((error) => {
+      console.log("an error occurred during initMap() call back");
+      console.log(error);
+    });
+  }
