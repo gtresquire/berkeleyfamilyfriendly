@@ -5,16 +5,25 @@ let database = firebase.database();
 console.log(database);
 
 // Setting up mock data
-let position = {
-    lat: 37.7749,
-    lng: -122.4194 
-}
+// let position = {
+//     lat: 37.7749,
+//     lng: -122.4194 
+// }
 
 // console.log(position);
 
-let place = {
+let sf = {
     name: "san francisco",
-    position: position,
+    position: {lat: 37.7749, lng: -122.4194},
+    address: "san francisco, california",
+    type: "city",
+    reviews: []
+}
+
+let berk = {
+    name: "berkeley",
+    position: {lat: 37.8716, lng: -122.2727},
+    address: "berkeley, california",
     type: "city",
     reviews: []
 }
@@ -27,35 +36,46 @@ let user = {
     reviews: []
 };
 
-let review = {
+let reviewSF = {
     reviewer: "mara", // name of user, string
-    location: "san francisco", // name of place
+    location: "san francisco", // name of location
     rating: 5, // num between 1 and 5, integer
-    message: "I love San Francisco!" // the review of the place, string
+    message: "I love San Francisco!" // the review of the sf, string
 };
 
-user.reviews.push(review);
-place.reviews.push(review);
+let reviewB = {
+    reviewer: "mara", // name of user, string
+    location: "berkeley", // name of location
+    rating: 5, // num between 1 and 5, integer
+    message: "Berkeley is awesome!" // the review of the sf, string
+};
+
+// user.reviews.push(reviewSF);
+// sf.reviews.push(reviewSF);
+
+// user.reviews.push(reviewB);
+// berk.reviews.push(reviewB);
 
 // console.log(user);
-// console.log(place);
+// console.log(sf);
 // console.log(review);
 
 // Enter mock data into firebase
 
 // establish a connection 
-// location (or place) gets pushed to firebase
-function writeLocationData(place) {
-    database.ref("/location/"+place.name).set({
-        name: place.name,
-        position: place.position,
-        type: place.type,
-        reviews: place.reviews
+// location (or sf) gets pushed to firebase
+function writeLocationData(location) {
+    database.ref("/location/"+location.name).set({
+        name: location.name,
+        position: location.position,
+        address: location.address,
+        type: location.type,
+        reviews: location.reviews
     }, function(error) {
         if(error) {
-            console.log("failed to write " + place.name + " to firebase backend");
+            console.log("failed to write " + location.name + " to firebase backend");
         } else {
-            console.log("successfully wrote " + place.name + " to firebase backend");
+            console.log("successfully wrote " + location.name + " to firebase backend");
         }
     });
 }
@@ -83,9 +103,9 @@ function writeUserData(user) {
 function writeReviewData(review) {
     database.ref("/review/"+review.location+"/"+review.reviewer).set({
         reviewer: review.reviewer, // name of user, string
-        location: review.location, // name of place
+        location: review.location, // name of sf
         rating: review.rating, // num between 1 and 5, integer
-        message: review.message // the review of the place, string
+        message: review.message // the review of the sf, string
     }, function(error) {
         if(error) {
             console.log("failed to write review to firebase backend");
@@ -95,35 +115,16 @@ function writeReviewData(review) {
     });
 }
 
-// let position;
-
-// // now we retrieve the lat and long of San Francisco from firebase
-// database.ref("/location/"+place.name).once("value", function(snapshot) {
-//     position = snapshot.val().position;
-//     console.log(position);
-// }).then(() => {
-//   // after retrieving the value from firebase
-//   // we create the map
-//   let map = createMap(position);
-
-//   // after creating the map, place the marker
-//   let marker = createMarker(position, map, "Hello San Franccisco!");
-
-// }).catch((error) => {
-//   console.log("an error occurred")
-//   console.log(error)
-// });
-
+// writeUserData(user);
+// writeLocationData(berk);
+// writeReviewData(reviewB);
 
 function createMap(centerPos) {
+    console.log(centerPos);
+
     let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
         center: centerPos
-    });
-    let geocoder = new google.maps.Geocoder();
-
-    document.getElementById('submit').addEventListener('click', function() {
-        geocodeAddress(geocoder, map);
     });
 
     return map;
@@ -137,4 +138,18 @@ function createMarker(pos, map, title) {
     });
 
     return marker;
+}
+
+function geocodeAddress(geocoder, resultsMap, location) {
+    // geocode the address
+    geocoder.geocode({'address': location.address}, (results, status) => {
+      if (status === 'OK') {
+        let marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
 }

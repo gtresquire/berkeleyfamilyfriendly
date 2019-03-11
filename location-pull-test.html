@@ -45,10 +45,6 @@
 
   </head>
   <body>
-    <div id="floating-panel">
-      <input id="address" type="textbox" value="Berkeley, California">
-      <input id="submit" type="button" value="Geocode">
-    </div>
     <div id="map"></div>
     <script>
 
@@ -56,42 +52,47 @@
       function initMap() {
 
         // create a variable to store the position of our marker
-        let position;
+        // let position;
+        let locations;
 
-        // now we retrieve the lat and long of San Francisco from firebase
-        database.ref("/location/"+place.name).once("value", function(snapshot) {
-            position = snapshot.val().position;
-            console.log(position);
-
-        // database.ref().once() returns a "promise",
-        // by using "then", we are stating that we want to perform the following code
-        //   after firebase has fulfilled the promise.
+        // grab the list of locations from firebase.
+        database.ref("/location").once("value", function(snapshot) {
+          locations = snapshot.val();
+          console.log(locations);
         }).then(() => {
-          // after retrieving the value from firebase we create the map
-          let map = createMap(position);
+          let map = createMap(locations["berkeley"].position);
+          console.log(locations["berkeley"]);
 
-          // after creating the map, place the marker
-          let marker = createMarker(position, map, "Hello San Franccisco!");
+          let geocoder = new google.maps.Geocoder();
 
+          for (i in locations) {
+            // console.log(locations[i]);
+
+            geocodeAddress(geocoder, map, locations[i]);
+          }
         }).catch((error) => {
-          console.log("an error occurred")
-          console.log(error)
+          console.log("an error occurred during initMap() call back");
+          console.log(error);
         });
       }
 
-      function geocodeAddress(geocoder, resultsMap) {
-        let address = document.getElementById('address').value;
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            let marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });
+      function geocodeAddress(geocoder, resultsMap, location) {
+
+          // geocode the address
+          geocoder.geocode({'address': location.address}, function(results, status) {
+            // console.log(results);
+            // console.log(resultsMap);
+
+            if (status === 'OK') {
+              // resultsMap.setCenter(results[0].geometry.location);
+              let marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+              });
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
       }
 
       console.log("After initMap()");
