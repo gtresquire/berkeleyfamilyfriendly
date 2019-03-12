@@ -71,7 +71,7 @@ function writeLocationData(location) {
         address: location.address,
         type: location.type,
         reviews: location.reviews
-    }, function(error) {
+    }, error => {
         if(error) {
             console.log("failed to write " + location.name + " to firebase backend");
         } else {
@@ -89,7 +89,7 @@ function writeUserData(user) {
         email: user.email,
         // picture: "", // can we store images on firebase?
         reviews: user.reviews
-    }, function(error) {
+    }, error => {
         if(error) {
             console.log("failed to write " + user.name + " to firebase backend");
         } else {
@@ -106,7 +106,7 @@ function writeReviewData(review) {
         location: review.location, // name of sf
         rating: review.rating, // num between 1 and 5, integer
         message: review.message // the review of the sf, string
-    }, function(error) {
+    }, error => {
         if(error) {
             console.log("failed to write review to firebase backend");
         } else {
