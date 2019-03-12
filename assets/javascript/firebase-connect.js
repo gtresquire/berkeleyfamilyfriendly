@@ -15,3 +15,5 @@ let config = {
   };
 
 firebase.initializeApp(config);
+
+let database = firebase.database();

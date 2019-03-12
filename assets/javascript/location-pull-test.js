@@ -1,8 +1,8 @@
 // Call the script firebase-connect.js before attempting to call this script.
 // The firebase variable comes from the firebase-connect.js script
-let database = firebase.database();
+// let database = firebase.database();
 
-console.log(database);
+// console.log(database);
 
 // Setting up mock data
 // let position = {
@@ -12,43 +12,43 @@ console.log(database);
 
 // console.log(position);
 
-let sf = {
-    name: "san francisco",
-    position: {lat: 37.7749, lng: -122.4194},
-    address: "san francisco, california",
-    type: "city",
-    reviews: []
-}
+// let sf = {
+//     name: "san francisco",
+//     position: {lat: 37.7749, lng: -122.4194},
+//     address: "san francisco, california",
+//     type: "city",
+//     reviews: []
+// }
 
-let berk = {
-    name: "berkeley",
-    position: {lat: 37.8716, lng: -122.2727},
-    address: "berkeley, california",
-    type: "city",
-    reviews: []
-}
+// let berk = {
+//     name: "berkeley",
+//     position: {lat: 37.8716, lng: -122.2727},
+//     address: "berkeley, california",
+//     type: "city",
+//     reviews: []
+// }
 
-let user = {
-    name: "mara",
-    children: 2,
-    email: "mara@university.edu",
-    // picture: "", // can we store images on firebase?
-    reviews: []
-};
+// let user = {
+//     name: "mara",
+//     children: 2,
+//     email: "mara@university.edu",
+//     // picture: "", // can we store images on firebase?
+//     reviews: []
+// };
 
-let reviewSF = {
-    reviewer: "mara", // name of user, string
-    location: "san francisco", // name of location
-    rating: 5, // num between 1 and 5, integer
-    message: "I love San Francisco!" // the review of the sf, string
-};
+// let reviewSF = {
+//     reviewer: "mara", // name of user, string
+//     location: "san francisco", // name of location
+//     rating: 5, // num between 1 and 5, integer
+//     message: "I love San Francisco!" // the review of the sf, string
+// };
 
-let reviewB = {
-    reviewer: "mara", // name of user, string
-    location: "berkeley", // name of location
-    rating: 5, // num between 1 and 5, integer
-    message: "Berkeley is awesome!" // the review of the sf, string
-};
+// let reviewB = {
+//     reviewer: "mara", // name of user, string
+//     location: "berkeley", // name of location
+//     rating: 5, // num between 1 and 5, integer
+//     message: "Berkeley is awesome!" // the review of the sf, string
+// };
 
 // user.reviews.push(reviewSF);
 // sf.reviews.push(reviewSF);
@@ -64,56 +64,56 @@ let reviewB = {
 
 // establish a connection 
 // location (or sf) gets pushed to firebase
-function writeLocationData(location) {
-    database.ref("/location/"+location.name).set({
-        name: location.name,
-        position: location.position,
-        address: location.address,
-        type: location.type,
-        reviews: location.reviews
-    }, function(error) {
-        if(error) {
-            console.log("failed to write " + location.name + " to firebase backend");
-        } else {
-            console.log("successfully wrote " + location.name + " to firebase backend");
-        }
-    });
-}
+// function writeLocationData(location) {
+//     database.ref("/location/"+location.name).set({
+//         name: location.name,
+//         position: location.position,
+//         address: location.address,
+//         type: location.type,
+//         reviews: location.reviews
+//     }, error => {
+//         if(error) {
+//             console.log("failed to write " + location.name + " to firebase backend");
+//         } else {
+//             console.log("successfully wrote " + location.name + " to firebase backend");
+//         }
+//     });
+// }
 
-// ref("/user")
-// user gets pushed to firebase
-function writeUserData(user) {
-    database.ref("/user/"+user.name).set({
-        name: user.name,
-        children: user.children,
-        email: user.email,
-        // picture: "", // can we store images on firebase?
-        reviews: user.reviews
-    }, function(error) {
-        if(error) {
-            console.log("failed to write " + user.name + " to firebase backend");
-        } else {
-            console.log("successfully wrote " + user.name + " to firebase backend");
-        }
-    });
-}
+// // ref("/user")
+// // user gets pushed to firebase
+// function writeUserData(user) {
+//     database.ref("/user/"+user.name).set({
+//         name: user.name,
+//         children: user.children,
+//         email: user.email,
+//         // picture: "", // can we store images on firebase?
+//         reviews: user.reviews
+//     }, error => {
+//         if(error) {
+//             console.log("failed to write " + user.name + " to firebase backend");
+//         } else {
+//             console.log("successfully wrote " + user.name + " to firebase backend");
+//         }
+//     });
+// }
 
-// ref("/review")
-// review gets pushed to firebase
-function writeReviewData(review) {
-    database.ref("/review/"+review.location+"/"+review.reviewer).set({
-        reviewer: review.reviewer, // name of user, string
-        location: review.location, // name of sf
-        rating: review.rating, // num between 1 and 5, integer
-        message: review.message // the review of the sf, string
-    }, function(error) {
-        if(error) {
-            console.log("failed to write review to firebase backend");
-        } else {
-            console.log("successfully wrote review to firebase backend");
-        }
-    });
-}
+// // ref("/review")
+// // review gets pushed to firebase
+// function writeReviewData(review) {
+//     database.ref("/review/"+review.location+"/"+review.reviewer).set({
+//         reviewer: review.reviewer, // name of user, string
+//         location: review.location, // name of sf
+//         rating: review.rating, // num between 1 and 5, integer
+//         message: review.message // the review of the sf, string
+//     }, error => {
+//         if(error) {
+//             console.log("failed to write review to firebase backend");
+//         } else {
+//             console.log("successfully wrote review to firebase backend");
+//         }
+//     });
+// }
 
 // writeUserData(user);
 // writeLocationData(berk);
@@ -144,10 +144,7 @@ function geocodeAddress(geocoder, resultsMap, location) {
     // geocode the address
     geocoder.geocode({'address': location.address}, (results, status) => {
       if (status === 'OK') {
-        let marker = new google.maps.Marker({
-          map: resultsMap,
-          position: results[0].geometry.location
-        });
+        createMarker(results[0].geometry.location, resultsMap, location.name);
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
@@ -166,8 +163,7 @@ function initMap() {
       locations = snapshot.val();
       console.log(locations);
     }).then(() => {
-      let map = createMap(locations["berkeley"].position);
-      console.log(locations["berkeley"]);
+      let map = createMap({lat: 37.8716, lng: -122.2727});
 
       let geocoder = new google.maps.Geocoder();
 
