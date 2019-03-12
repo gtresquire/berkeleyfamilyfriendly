@@ -26,8 +26,8 @@
     <div id="nav">
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="https://tbncdn.freelogodesign.org/1e906115-24ba-4322-860a-b245eb37f4b9.png?1552327890826"
-                    width="30" height="30" class="d-inline-block align-top" id="navLogo">
+                <img src="assets/images/ParentMaps.png" width="30" height="30" class="d-inline-block align-top"
+                    id="navLogo">
                 ParentMaps
             </a>
         </nav>
@@ -37,57 +37,63 @@
 
     <div class="jumbotron jumbotron-fluid" id="jumbotron">
         <div class="container">
-            <h1 class="display-4">We're are ParentMaps.</h1>
-            <p class="lead">Our mission is to make life easier for families in Berkeley, CA.</p>
+            <h1 class="display-4">Welcome to ParentMaps.</h1>
+            <p class="lead">Parents have a lack of time and information to efficiently/easily plan
+                activities with their families. As such, we are giving parents access to information
+                to facilitate their lives and overcome logistical obstacles. We are creating community
+                database that displays an interactive map of places with family-friendly features:
+                drive-thrus, parking, baby-changing stations. In addition to showing a map of curated
+                locations with these features, we are creating a community-based platform where users
+                can share their own locations/reviews to our database.</p>
         </div>
     </div>
 
     <div id="map" position="absolute"></div>
 
     <div class="row mt-3 mb-3">
-            <div class="col-12">
-                <div class="card" style="background-color: lightskyblue" id="mapFilter">
-                    <div class="card-body" style="text-align: center">
-                        Map Filter!
-                    </div>
+        <div class="col-12">
+            <div class="card" style="background-color: lightskyblue" id="mapFilter">
+                <div class="card-body" style="text-align: center">
+                    Map Filter!
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="card mb-3" id="filterForm">
-            <div class="form-check form-check-inline" mb-3>
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Drive-Through</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Parking</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3">Family-Friendly Atmosphere</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3">Baby-Changing Station</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3">Playground/Play Area</label>
-            </div>
+    <div class="card mb-3" id="filterForm">
+        <div class="form-check form-check-inline" mb-3>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Drive-Through</label>
         </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Parking</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+            <label class="form-check-label" for="inlineCheckbox3">Family-Friendly Atmosphere</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option3">
+            <label class="form-check-label" for="inlineCheckbox3">Baby-Changing Station</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option3">
+            <label class="form-check-label" for="inlineCheckbox3">Playground/Play Area</label>
+        </div>
+    </div>
 
     <!-- Login slash sign form -->
 
     <div class="row mb-3">
-            <div class="col-12">
-                <div class="card" style="background-color: lightskyblue">
-                    <div class="card-body" style="text-align: center">
-                        Add a new location and review to our map!
-                    </div>
+        <div class="col-12">
+            <div class="card" style="background-color: lightskyblue">
+                <div class="card-body" style="text-align: center">
+                    Add a new location and review to our map!
                 </div>
             </div>
         </div>
+    </div>
 
     <div class="container">
         <div class="row mb-3">
@@ -218,7 +224,72 @@
         <!--So, here we need to add a click event that takes the input values and adds them to our Firebase.-->
 
     </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-12">
+            <div class="card" style="background-color: lightskyblue" id="reviews">
+                <div class="card-body" style="text-align: center">
+                    Recent Reviews:
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <table class="table table-hover" style="background-color: whitesmoke">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User:</th>
+                <th scope="col">Location Name:</th>
+                <th scope="col">Type:</th>
+                <th scope="col">Address:</th>
+                <th scope="col">Comments:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Drew</td>
+                <td>A Nice Park</td>
+                <td>Park</td>
+                <td>123 University Ave, Berkeley, CA</td>
+                <td>This is a very clean and safe park with ample parking!</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Drew</td>
+                <td>A Nice Park</td>
+                <td>Park</td>
+                <td>123 University Ave, Berkeley, CA</td>
+                <td>This is a very clean and safe park with ample parking!</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Drew</td>
+                <td>A Nice Park</td>
+                <td>Park</td>
+                <td>123 University Ave, Berkeley, CA</td>
+                <td>This is a very clean and safe park with ample parking!</td>
+            </tr>
+            <tr>
+                <th scope="row">1</th>
+                <td>Drew</td>
+                <td>A Nice Park</td>
+                <td>Park</td>
+                <td>123 University Ave, Berkeley, CA</td>
+                <td>This is a very clean and safe park with ample parking!</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <nav class="navbar sticky-bottom navbar-light bg-light">
+
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/ParentMaps.png" width="30" height="30" class="d-inline-block align-top"
+                id="navLogo">
+            ParentMaps | Made in Berkeley, CA.</a>
+
+    </nav>
     </div>
 
     <!-- Link to api keys -->
