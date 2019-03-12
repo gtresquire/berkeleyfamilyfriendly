@@ -11,14 +11,10 @@ function initMap() {
     locations = snapshot.val();
     console.log(locations);
   }).then(() => {
-    let map = createMap(locations["berkeley"].position);
-    console.log(locations["berkeley"]);
-
+    let map = createMap({lat: 37.8716, lng: -122.2727});
     let geocoder = new google.maps.Geocoder();
 
     for (i in locations) {
-      // console.log(locations[i]);
-
       geocodeAddress(geocoder, map, locations[i]);
     }
   }).catch(error => {
@@ -52,10 +48,7 @@ function geocodeAddress(geocoder, resultsMap, location) {
   // geocode the address
   geocoder.geocode({'address': location.address}, (results, status) => {
     if (status === 'OK') {
-      let marker = new google.maps.Marker({
-        map: resultsMap,
-        position: results[0].geometry.location
-      });
+      createMarker(results[0].geometry.location, resultsMap, location.name);
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
@@ -73,65 +66,9 @@ window.eqfeed_callback = function (results) {
       map: map
     });
   }
-}  
-
-// location (or sf) gets pushed to firebase
-function writeLocationData(location) {
-  database.ref("/location/"+location.name).set({
-      name: location.name,
-      position: location.position,
-      address: location.address,
-      type: location.type,
-      reviews: location.reviews
-  }, error => {
-      if(error) {
-          console.log("failed to write " + location.name + " to firebase backend");
-      } else {
-          console.log("successfully wrote " + location.name + " to firebase backend");
-      }
-  });
 }
 
-// ref("/user")
-// user gets pushed to firebase
-function writeUserData(user) {
-  database.ref("/user/"+user.name).set({
-      name: user.name,
-      children: user.children,
-      email: user.email,
-      // picture: "", // can we store images on firebase?
-      reviews: user.reviews
-  }, error => {
-      if(error) {
-          console.log("failed to write " + user.name + " to firebase backend");
-      } else {
-          console.log("successfully wrote " + user.name + " to firebase backend");
-      }
-  });
-}
 
-// ref("/review")
-// review gets pushed to firebase
-function writeReviewData(review) {
-  database.ref("/review/"+review.location+"/"+review.reviewer).set({
-      reviewer: review.reviewer, // name of user, string
-      location: review.location, // name of sf
-      rating: review.rating, // num between 1 and 5, integer
-      message: review.message // the review of the sf, string
-  }, error => {
-      if(error) {
-          console.log("failed to write review to firebase backend");
-      } else {
-          console.log("successfully wrote review to firebase backend");
-      }
-  });
-}
-
-{/* <td>Drew</td>
-<td>A Nice Park</td>
-<td>Park</td>
-<td>123 University Ave, Berkeley, CA</td>
-<td>This is a very clean and safe park with ample parking!</td> */}
 
 // Initialize Firebase
 let config = {
