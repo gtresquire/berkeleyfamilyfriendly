@@ -68,26 +68,5 @@ window.eqfeed_callback = function (results) {
   }
 }
 
-
-
-// Initialize Firebase
-let config = {
-  apiKey: keys.FIREBASE,
-  authDomain: "cool-kids-81481.firebaseapp.com",
-  databaseURL: "https://cool-kids-81481.firebaseio.com",
-  projectId: "cool-kids-81481",
-  storageBucket: "cool-kids-81481.appspot.com",
-  messagingSenderId: "905740305108"
-};
-
-console.log(config)
-firebase.initializeApp(config);
-
-console.log(firebase);
-
-let database = firebase.database();
-console.log(database);
-
-
 $("body").append('<script src="https://maps.googleapis.com/maps/api/js?key='+keys.GOOGLE_MAPS+'&callback=initMap">')
  

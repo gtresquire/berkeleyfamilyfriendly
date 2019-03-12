@@ -81,7 +81,7 @@ let review = {
   message: "This is a very clean and safe park with ample parking!" // the review of the location, string
 };
 
-let aPark = {
+let place = {
   name: "Live Oak Park",
   address: "1301 Shattuck Ave, Berkeley, CA 94709",
   type: "park",
@@ -96,8 +96,8 @@ let aPark = {
 };
 
 drew.reviews.push(review);
-aPark.reviews.push(review);
+place.reviews.push(review);
 
-writeLocationData(aPark);
+writeLocationData(place);
 writeUserData(drew);
 writeReviewData(review);
