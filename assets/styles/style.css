@@ -47,10 +47,9 @@ font-family: 'Righteous', cursive;
 }
 
 #filterForm {
-
   text-align: center;
-
-
+  display: inline-block;
+  background-color: lightblue;
 }
 
 /* Full-width input fields */
