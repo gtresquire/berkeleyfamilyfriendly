@@ -24,7 +24,7 @@
 
 <body>
     <div id="nav">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar" style="background-color:#D6EAF8      ">
             <a class="navbar-brand" href="#">
                 <img src="assets/images/ParentMaps.png" width="30" height="30" class="d-inline-block align-top"
                     id="navLogo">
@@ -35,10 +35,10 @@
 
     <!-- Target div for placement of Googlmap -->
 
-    <div class="jumbotron jumbotron-fluid" id="jumbotron">
+    <div class="jumbotron" id="jumbotron">
         <div class="container">
             <h1 class="display-4">Welcome to ParentMaps.</h1>
-            <p class="lead">Parents have a lack of time and information to efficiently/easily plan
+            <p class="lead" id="description">Parents have a lack of time and information to efficiently/easily plan
                 activities with their families. As such, we are giving parents access to information
                 to facilitate their lives and overcome logistical obstacles. We are creating community
                 database that displays an interactive map of places with family-friendly features:
@@ -48,269 +48,321 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12">
+            <div class="card" style="background-color:  #D6EAF8" id="mapFilter">
+                <div class="card-body" style="text-align: center">
+                    <h2>
+                        Our Interactive Map:</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="map" position="absolute"></div>
 
-    <div class="row mt-3 mb-3">
+    <div class="row">
         <div class="col-12">
-            <div class="card" style="background-color: lightskyblue" id="mapFilter">
+            <div class="card" style="background-color:  #D6EAF8" id="mapFilter">
                 <div class="card-body" style="text-align: center">
-                    Map Filter!
+                    <h2>
+                        Map Filter:</h2>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card mb-3" id="filterForm">
-        <div class="form-check form-check-inline" mb-3>
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">Drive-Through</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">Parking</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-            <label class="form-check-label" for="inlineCheckbox3">Family-Friendly Atmosphere</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option3">
-            <label class="form-check-label" for="inlineCheckbox4">Baby-Changing Station</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option3">
-            <label class="form-check-label" for="inlineCheckbox5">Playground/Park</label>
-        </div>
-    </div>
+   <div id="mapFilter">
 
-    <!-- Login slash sign form -->
+                        <div class="row mb-3 mt-3">
+                                <div class="col-12">
+                                    <label for="checkbox">Location Type:</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checkboxA"
+                                            value="">Restaurant</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checkboxB"
+                                            value="">Café</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checboxC"
+                                            value="">Shopping</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checboxD" value="">Sports &
+                                        Recreation</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checboxE"
+                                            value="">Arts</label>
+    
+                                </div>
+                            </div>
+    
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label for="checkbox">Location Features:</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checkbox1"
+                                            value="">Drive-Through</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checkbox2"
+                                            value="">Parking</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checbox3"
+                                            value="">Family-Friendly Atmosphere</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checbox4"
+                                            value="">Baby-Changing Station</label>
+                                    <label class="checkbox-inline"><input type="checkbox" id="checbox5"
+                                            value="">Playground/Park</label>
+                                </div>
+                            </div>
+                        
+                        </div>
 
-    <div class="row mb-3">
-        <div class="col-12">
-            <div class="card" style="background-color: lightskyblue">
-                <div class="card-body" style="text-align: center">
-                    Add a new location and review to our map!
-                </div>
-            </div>
-        </div>
-    </div>
+                    <!-- Login slash sign form -->
 
-    <div class="container">
-        <div class="row mb-3">
-            <div class="col-12">
-                <label for="usr">Username:</label>
-                <input type="text" class="form-control" id="usr">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-12">
-                <label for="usr">New Location Name:</label>
-                <input type="text" class="form-control" id="usr">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-12">
-                <label for="checkbox">Location Category:</label>
-                <label class="checkbox-inline"><input type="checkbox" id="checkbox1" value="">Drive-Through</label>
-                <label class="checkbox-inline"><input type="checkbox" id="checkbox2" value="">Parking</label>
-                <label class="checkbox-inline"><input type="checkbox" id="checbox3" value="">Family-Friendly Atmosphere</label>
-                <label class="checkbox-inline"><input type="checkbox" id="checbox4" value="">Baby-Changing Station</label>
-                <label class="checkbox-inline"><input type="checkbox" id="checbox5" value="">Playground/Park</label>
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-12">
-                <div class="row mb-3">
-                    <div class="col-12">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    </div>
-
-                </div>
-                <div class="row mb-3">
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity">
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <div class="card" style="background-color: #D6EAF8">
+                                <div class="card-body" style="text-align: center">
+                                    <h2>
+                                        Add a New Location:</h2>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
+
+                    <div class="container">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="usr">Username:</label>
+                                <input type="text" class="form-control" id="usr">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="usr">New Location Name:</label>
+                                <input type="text" class="form-control" id="usr">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="checkbox">Location Type:</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checkboxA"
+                                        value="">Restaurant</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checkboxB"
+                                        value="">Café</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checboxC"
+                                        value="">Shopping</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checboxD" value="">Sports &
+                                    Recreation</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checboxE"
+                                        value="">Arts</label>
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label for="checkbox">Location Features:</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checkbox1"
+                                        value="">Drive-Through</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checkbox2"
+                                        value="">Parking</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checbox3"
+                                        value="">Family-Friendly Atmosphere</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checbox4"
+                                        value="">Baby-Changing Station</label>
+                                <label class="checkbox-inline"><input type="checkbox" id="checbox5"
+                                        value="">Playground/Park</label>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label for="inputAddress">Address</label>
+                                        <input type="text" class="form-control" id="inputAddress"
+                                            placeholder="1234 Main St">
+                                    </div>
+
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="inputCity">City</label>
+                                            <input type="text" class="form-control" id="inputCity">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="inputZip">Zip</label>
+                                        <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                    <div class="col-3">
+
+                                        <label for="state" class="control-label">State</label>
+                                        <select class="form-control" id="state" name="state">
+                                            <option value="">N/A</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DC">District of Columbia</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NY">New York</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="PR">Puerto Rico</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WY">Wyoming</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label for="comment">Comment:</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-dark  btn-block"
+                                            id="submit">Submit</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--So, here we need to add a click event that takes the input values and adds them to our Firebase.-->
+
                     </div>
-                    <div class="col-3">
-
-                        <label for="state" class="control-label">State</label>
-                        <select class="form-control" id="state" name="state">
-                            <option value="">N/A</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AL">Alabama</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DC">District of Columbia</option>
-                            <option value="DE">Delaware</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="IA">Iowa</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MD">Maryland</option>
-                            <option value="ME">Maine</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MT">Montana</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NY">New York</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="PR">Puerto Rico</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VA">Virginia</option>
-                            <option value="VT">Vermont</option>
-                            <option value="WA">Washington</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WY">Wyoming</option>
-                        </select>
-
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card" style="background-color: #D6EAF8" id="reviewsHeading">
+                                <div class="card-body" style="text-align: center">
+                                    <h2>
+                                        Recent Reviews:</h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <table class="table table-hover" style="background-color:#EAF2F8" id="reviews">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">User:</th>
+                                <th scope="col">Location Name:</th>
+                                <th scope="col">Type:</th>
+                                <th scope="col">Address:</th>
+                                <th scope="col">Comments:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Drew</td>
+                                <td>Drew Park</td>
+                                <td>Playground/Park</td>
+                                <td>123 University Ave, Berkeley, CA</td>
+                                <td>This is a very clean and safe park with ample parking!</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Roger</td>
+                                <td>Berkeley Library</td>
+                                <td>Baby-Changing Station, Parking</td>
+                                <td>123 University Ave, Berkeley, CA</td>
+                                <td>This is a very clean and safe park with ample parking!</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Kit</td>
+                                <td>Blue Bottle Coffee</td>
+                                <td>Family-Friendly Atmosphere</td>
+                                <td>123 University Ave, Berkeley, CA</td>
+                                <td>This is a very clean and safe park with ample parking!</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Isaac</td>
+                                <td>UC Berkeley Extension</td>
+                                <td>Parking, Family-Friendly Atmosphere</td>
+                                <td>123 University Ave, Berkeley, CA</td>
+                                <td>This is a very clean and safe park with ample parking!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <nav class="navbar sticky-bottom" style="background-color:#D6EAF8 " id="navBottom;" >
+                        <a class="navbar-brand" href="#" >
+                            <img src="assets/images/ParentMaps.png" width="30" height="30"
+                                class="d-inline-block align-top" id="navLogo">
+                            ParentMaps | Made in Berkeley, CA.</a>
+
+                    </nav>
                 </div>
 
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="row mb-3">
-                    <div class="col-12">
-                        <label for="comment">Comment:</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-dark  btn-block" id="submit">Submit</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!--So, here we need to add a click event that takes the input values and adds them to our Firebase.-->
-
-    </div>
-    <div class="row mt-3 mb-3">
-        <div class="col-12">
-            <div class="card" style="background-color: lightskyblue" id="reviews">
-                <div class="card-body" style="text-align: center">
-                    Recent Reviews:
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <table class="table table-hover" style="background-color: whitesmoke">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">User:</th>
-                <th scope="col">Location Name:</th>
-                <th scope="col">Type:</th>
-                <th scope="col">Address:</th>
-                <th scope="col">Comments:</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Drew</td>
-                <td>Drew Park</td>
-                <td>Playground/Park</td>
-                <td>123 University Ave, Berkeley, CA</td>
-                <td>This is a very clean and safe park with ample parking!</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Roger</td>
-                <td>Berkeley Library</td>
-                <td>Baby-Changing Station, Parking</td>
-                <td>123 University Ave, Berkeley, CA</td>
-                <td>This is a very clean and safe park with ample parking!</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Kit</td>
-                <td>Blue Bottle Coffee</td>
-                <td>Family-Friendly Atmosphere</td>
-                <td>123 University Ave, Berkeley, CA</td>
-                <td>This is a very clean and safe park with ample parking!</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Isaac</td>
-                <td>UC Berkeley Extension</td>
-                <td>Parking, Family-Friendly Atmosphere</td>
-                <td>123 University Ave, Berkeley, CA</td>
-                <td>This is a very clean and safe park with ample parking!</td>
-            </tr>
-        </tbody>
-    </table>
+                <!-- Link to api keys -->
+                <script src="./assets/javascript/config.js"></script>
 
 
-    <nav class="navbar sticky-bottom navbar-light bg-light">
+                <!-- mock data for store locations -->
+                <script src="./assets/javascript/store-location.js"></script>
 
-        <a class="navbar-brand" href="#">
-            <img src="assets/images/ParentMaps.png" width="30" height="30" class="d-inline-block align-top"
-                id="navLogo">
-            ParentMaps | Made in Berkeley, CA.</a>
-
-    </nav>
-    </div>
-
-    <!-- Link to api keys -->
-    <script src="./assets/javascript/config.js"></script>
-
-
-    <!-- mock data for store locations -->
-    <script src="./assets/javascript/store-location.js"></script>
-
-    <!-- Additional required Bootstrap scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+                <!-- Additional required Bootstrap scripts -->
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                    crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                    crossorigin="anonymous"></script>
 
 </body>
 
