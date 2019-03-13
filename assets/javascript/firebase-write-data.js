@@ -1,4 +1,4 @@
-// location (or sf) gets pushed to firebase
+// write a location object to firebase database
 function writeLocationData(location) {
   database.ref("/location/"+location.name).set({
       name: location.name,
@@ -22,8 +22,7 @@ function writeLocationData(location) {
   });
 }
 
-// ref("/user")
-// user gets pushed to firebase
+// write a user object to firebase database
 function writeUserData(user) {
   database.ref("/user/"+user.name).set({
       name: user.name,
@@ -39,8 +38,8 @@ function writeUserData(user) {
   });
 }
 
-// ref("/review")
-// review gets pushed to firebase
+
+// write a review object to firebase database
 function writeReviewData(review) {
   database.ref("/review/"+review.location+"/"+review.reviewer).set({
       reviewer: review.reviewer, // name of user, string
@@ -57,47 +56,3 @@ function writeReviewData(review) {
 }
 
 
-/*
-Drew // user.name
-A Nice Park // place.name
-Park // type ?
-123 University Ave, Berkeley, CA // park
-This is a very clean and safe park with ample parking! // review
-*/
-
-// Example: Mara is a teacher with 2 children who works as a professor at the university
-let drew = {
-  name: "Drew",
-  // children: 2,
-  email: "codingcorgis@university.edu",
-  // picture: "", // can we store images on firebase?
-  reviews: []
-};
-
-let review = {
-  reviewer: "Drew", // name of user, string
-  location: "Live Oak Park", // name of place, string or tuple with lat and longittude?
-  rating: 5, // num between 1 and 5, integer
-  message: "This is a very clean and safe park with ample parking!" // the review of the location, string
-};
-
-let place = {
-  name: "Live Oak Park",
-  address: "1301 Shattuck Ave, Berkeley, CA 94709",
-  type: "park",
-  reviews: [], // array of review object
-  category: {
-    driveThru: false,
-    parking: true,
-    familyFriendly: true,
-    babyChange: false,
-    playground: true
-  }
-};
-
-drew.reviews.push(review);
-place.reviews.push(review);
-
-writeLocationData(place);
-writeUserData(drew);
-writeReviewData(review);

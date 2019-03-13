@@ -9,7 +9,7 @@ function initMap() {
   // grab the list of locations from firebase.
   database.ref("/location").once("value", function(snapshot) {
     locations = snapshot.val();
-    console.log(locations);
+
   }).then(() => {
     let map = createMap({lat: 37.8716, lng: -122.2727});
     let geocoder = new google.maps.Geocoder();
@@ -24,7 +24,6 @@ function initMap() {
 }
 
 function createMap(centerPos) {
-  console.log(centerPos);
 
   let map = new google.maps.Map(document.getElementById('map'), {
       zoom: 13,
