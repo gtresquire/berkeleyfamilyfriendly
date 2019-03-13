@@ -130,6 +130,7 @@ database.ref("location").on("child_added", data => {
 // // When submit button is clicked we will fire the funtion that sends the data to firebase
 $("#submit").on("click", function(){
   senddata();
+  initMap();
 });
 
 
@@ -271,4 +272,3 @@ $(document).ready(function () {
     }
   });
 });
-
