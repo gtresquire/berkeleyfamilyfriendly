@@ -108,29 +108,29 @@
                         <div class="row mb-3">
                             <div class="col-12">
                                 <label for="usr">Username:</label>
-                                <input type="text" class="form-control" id="usr">
+                                <input type="text" class="form-control" id="username">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-12">
                                 <label for="usr">New Location Name:</label>
-                                <input type="text" class="form-control" id="usr">
+                                <input type="text" class="form-control" id="locationName">
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-12">
+                            <div class="col-12" id="location-type">
                                 <label for="checkbox">Location Type:</label>
                                 <label class="checkbox-inline"><input type="checkbox" id="checkboxA"
-                                        value="">Restaurant</label>
+                                        value="restaurant">Restaurant</label>
                                 <label class="checkbox-inline"><input type="checkbox" id="checkboxB"
-                                        value="">Café</label>
+                                        value="cafe">Café</label>
                                 <label class="checkbox-inline"><input type="checkbox" id="checkboxC"
-                                        value="">Shopping</label>
+                                        value="shopping">Shopping</label>
                                 <label class="checkbox-inline"><input type="checkbox" id="checkboxD" value="">Sports &
                                     Recreation</label>
                                 <label class="checkbox-inline"><input type="checkbox" id="checkboxE"
-                                        value="">Arts</label>
+                                        value="arts">Arts</label>
 
                             </div>
                         </div>
@@ -340,10 +340,15 @@
 
     <!-- Link to api keys -->
    <script type="text/javascript" src="assets/javascript/config.js"></script>
+
     <!-- configures connection to firebase database -->
     <script type="text/javascript" src="assets/javascript/firebase-connect.js"></script>
-    <!-- main script -->
-    <script src="assets/javascript/google-maps.js"></script>
+    <!-- contains functions for writing to firebase -->
+    <script type="text/javascript" src="assets/javascript/firebase-write-data.js"></script>
+    <!-- google maps api -->
+    <script type="text/javascript" src="assets/javascript/google-maps.js"></script>
+    <!-- main script contains form behavior -->
+    <script type="text/javascript" src="assets/javascript/main-script.js"></script>
 
     <!-- Additional required Bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
