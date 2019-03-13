@@ -6,9 +6,9 @@
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> 
 
     <!-- jquery script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-
+        <!-- This is the form to sort data on the map-->
     <div class="card mb-3" id="filterForm">
         <div class="form-check form-check-inline" mb-3>
             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -93,18 +93,18 @@
             </div>
         </div>
     </div>
-
+        <!-- The form to collect user input-->
     <div class="container">
         <div class="row mb-3">
             <div class="col-12">
                 <label for="usr">Username:</label>
-                <input type="text" class="form-control" id="usr">
+                <input type="text" class="form-control" id="username">
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-12">
                 <label for="usr">New Location Name:</label>
-                <input type="text" class="form-control" id="usr">
+                <input type="text" class="form-control" id="locationName">
             </div>
         </div>
         <div class="row mb-3">
@@ -112,11 +112,11 @@
                 <label for="checkbox">Location Category:</label>
                 <label class="checkbox-inline"><input type="checkbox" id="checkbox1" value="">Drive-Through</label>
                 <label class="checkbox-inline"><input type="checkbox" id="checkbox2" value="">Parking</label>
-                <label class="checkbox-inline"><input type="checkbox" id="checbox3" value="">Family-Friendly
+                <label class="checkbox-inline"><input type="checkbox" id="checkbox3" value="">Family-Friendly
                     Atmosphere</label>
-                <label class="checkbox-inline"><input type="checkbox" id="checbox4" value="">Baby-Changing
+                <label class="checkbox-inline"><input type="checkbox" id="checkbox4" value="">Baby-Changing
                     Station</label>
-                <label class="checkbox-inline"><input type="checkbox" id="checbox5" value="">Playground/Play
+                <label class="checkbox-inline"><input type="checkbox" id="checkbox5" value="">Playground/Play
                     Area</label>
             </div>
         </div>
@@ -249,7 +249,7 @@
                 <th scope="col">Comments:</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tableData">
             <tr>
                 <th scope="row">1</th>
                 <td>Drew</td>
@@ -298,12 +298,12 @@
 
 
     <!-- Link to api keys -->
-    <script type="text/javascript" src="assets/javascript/config.js"></script>
+   <script type="text/javascript" src="assets/javascript/config.js"></script>
     <!-- configures connection to firebase database -->
     <script type="text/javascript" src="assets/javascript/firebase-connect.js"></script>
     <!-- main script -->
-    <script src="./assets/javascript/store-location.js"></script>
-
+    <script src="./assets/javascript/store-location.js"></script> 
+    
     <!-- Additional required Bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
