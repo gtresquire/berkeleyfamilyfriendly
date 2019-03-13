@@ -127,7 +127,9 @@ database.ref("location").on("child_added", data => {
     let locName = data.val().name;
     let type = data.val().type;
     let address = data.val().address;
+    let category = data.val().category;
     let comment = data.val().reviews[0].message;
+    
 
     let tableBody = document.getElementById("location-info");
     let row = document.createElement("tr");
@@ -136,7 +138,9 @@ database.ref("location").on("child_added", data => {
     let locCol = document.createElement("td");
     let typCol = document.createElement("td");
     let addCol = document.createElement("td");
+    let catCol = document.createElement("td");
     let msgCol = document.createElement("td");
+    
 
     revCol.textContent = reviewer;
     locCol.textContent = locName;
@@ -144,7 +148,62 @@ database.ref("location").on("child_added", data => {
     addCol.textContent = address;
     msgCol.textContent = comment;
 
-    row.append(revCol, locCol, typCol, addCol, msgCol);
+    let catStr = "";
+
+    let count = 0;
+    if (category.driveThru) {
+      if (count < 1) {
+        catStr += "drive through";
+        count++;
+      }
+      else {
+        catStr += ", drive through";
+      }
+    }
+
+    if (category.parking) {
+      if (count < 1) {
+        catStr += "parking";
+        count++;
+      }
+      else {
+        catStr += ", parking";
+      }
+    }
+
+    if (category.familyFriendly) {
+      if (count < 1) {
+        catStr += "family friendly atmosphere";
+        count++;
+      }
+      else {
+        catStr += ", family friendly atmosphere";
+      }
+    }
+
+    if (category.babyChange) {
+      if (count < 1) {
+        catStr += "baby changing station";
+        count++;
+      }
+      else {
+        catStr += ", baby changing station";
+      }
+    }
+
+    if (category.playground) {
+      if (count < 1) {
+        catStr += "play area";
+        count++;
+      }
+      else {
+        catStr += ", play area";
+      }
+    }
+
+    catCol.textContent = catStr;
+
+    row.append(revCol, locCol, typCol, addCol, catCol, msgCol);
     tableBody.append(row);
 });
 
