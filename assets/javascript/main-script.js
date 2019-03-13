@@ -26,7 +26,8 @@ function senddata() {
   zip = document.getElementById("inputZip").value;
   fullAddress = address + ", " + city + ", " + state + ", " + zip;
   // console.log(fullAddress);
-  comment = document.getElementById("comment");
+  comment = document.getElementById("comment").value;
+  console.log(comment);
 
   drivethru = document.getElementById("checkbox1").checked;
   parking = document.getElementById("checkbox2").checked;
@@ -41,34 +42,22 @@ function senddata() {
   let locationType = "";
 
   let count = 0;
-  for (i in locTypeIn) {
-    // console.log(locTypeIn[i].checked);
+  for (i=0; i < locTypeIn.length; i++) {
+    console.log(locTypeIn[i].checked);
     if (locTypeIn[i].checked) {
       if (count < 1) {
-        // console.log(locTypeIn[i].value);
+        console.log(locTypeIn[i].value);
         locationType += locTypeIn[i].value;
 
         count++;
       }
       else {
-        // console.log("/"+locTypeIn[i].value);
+        console.log("/"+locTypeIn[i].value);
         locationType += "/"+locTypeIn[i].value;
       }
     }
   }
-  // console.log(locationType);
-
-  // let parentplace = {
-  //   username: username,
-  //   title: location_name,
-  //   address: fullAddress,
-  //   comment: comment,
-  //   drivethru: drivethru,
-  //   parking: parking,
-  //   changer: babyChanger,
-  //   play: playArea,
-  //   friendly: friendly
-  // }
+  console.log(locationType);
 
   let user = {
     name: username,
@@ -100,69 +89,38 @@ function senddata() {
   user.reviews.push(review);
   place.reviews.push(review);
 
-  // database.ref("/location/" + parentplace.title).set(parentplace);
-
-  // console.log(place);
-  // console.log(user);
-  // console.log(review);
-
   writeLocationData(place);
   writeUserData(user);
   writeReviewData(review);
 
 }  // end send data function
 
-function appendTable(){
-// grab data from firebase and store as
+// appends to the row containing the location information and review
+database.ref("location").on("child_added", data => {
+    let reviewer = data.val().reviews[0].reviewer;
+    let locName = data.val().name;
+    let type = data.val().type;
+    let address = data.val().address;
+    let comment = data.val().reviews[0].message;
 
-username = document.getElementById("username").value;
-location_name = document.getElementById("locationName").value;
-address = document.getElementById("inputAddress").value;
-city = document.getElementById("inputCity").value;
-state = document.getElementById("state").value;
-zip = document.getElementById("inputZip").value;
-fullAddress = address + ", " + city + ", " + state + ", " + zip;
-console.log(fullAddress);
-comment = document.getElementById("comment");
+    let tableBody = document.getElementById("location-info");
+    let row = document.createElement("tr");
 
-drivethru = document.getElementById("checkbox1").checked;
-parking = document.getElementById("checkbox2").checked;
-babyChanger = document.getElementById("checkbox3").checked;
-playArea = document.getElementById("checkbox4").checked;
-friendly = document.getElementById("checkbox5").checked;
-console.log(friendly);
+    let revCol = document.createElement("td");
+    let locCol = document.createElement("td");
+    let typCol = document.createElement("td");
+    let addCol = document.createElement("td");
+    let msgCol = document.createElement("td");
 
-//  console.log(database);
-//  database.ref().once('value').then(function(snapshot){
-//   let currentdata = snapshot.val();
-//   console.log(currentdata);
-//   console.log(currentdata.location.address);
-//   console.log(currentdata.location.username);
-//   console.log(currentdata.location.comment);
+    revCol.textContent = reviewer;
+    locCol.textContent = locName;
+    typCol.textContent = type;
+    addCol.textContent = address;
+    msgCol.textContent = comment;
 
-  let tableRef = document.getElementById('tableData');
-  console.log(tableRef);
-  // Insert a row in the table at row index 0
-  let newRow   = tableRef.insertRow(tableRef.rows.length);
-
-  // Insert a cell in the row at index 0-5
-  let data1  = newRow.insertCell(0);
-  let data2  = newRow.insertCell(1);
-  let data3  = newRow.insertCell(2);
-  let data4  = newRow.insertCell(3);
-  let data5  = newRow.insertCell(4);
-  let data6  = newRow.insertCell(5);
-
-  // Append a text node to the cell
- // let newText  = document.createTextNode('test node');
-
-  data1.innerHTML = 4;
-  data2.innerHTML = username;
-  data3.innerHTML = location_name;
-  data4.innerHTML = "Park Dummy";
-  data5.innerHTML = address;
-  data6.innerHTML = comment;
-}
+    row.append(revCol, locCol, typCol, addCol, msgCol);
+    tableBody.append(row);
+});
 
 // function sortmap (){
 //     console.log("sort the map");
@@ -172,7 +130,6 @@ console.log(friendly);
 // // When submit button is clicked we will fire the funtion that sends the data to firebase
 $("#submit").on("click", function(){
   senddata();
-  // appendTable();
 });
 
 
