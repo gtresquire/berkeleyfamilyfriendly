@@ -1,7 +1,7 @@
 // write a location object to firebase database
 function writeLocationData(location) {
-
-    if ( ! (location.name === "" || location.name == null)) {
+    if ( ! (location.name === "" || location.name == null)
+    && ( ! (location.address === "" || location.address == null))) {
         database.ref("/location/"+location.name).set({
             name: location.name,
             address: location.address,
