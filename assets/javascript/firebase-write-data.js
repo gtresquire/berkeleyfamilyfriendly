@@ -22,9 +22,6 @@ function writeLocationData(location) {
             }
         });
     }
-    else {
-        console.log("location name is required")
-    }
 }
 
 // write a user object to firebase database
