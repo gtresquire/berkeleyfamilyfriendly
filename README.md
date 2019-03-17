@@ -10,7 +10,7 @@ Team Members: Wassim, Amy, Aaron, Greg
 
 Project Description: 
 
-We are creating community database that displays information of places that have family-friendly features: drive-thrus, parking, baby-changing stations. In addition to showing a map of locations with these features, we will add a user-interface where users can input their own reviews/businesses/etc to our database. 
+We are creating a community database that displays information of places that have family-friendly features: drive-thrus, parking, baby-changing stations. In addition to showing a map of locations with these features, we will add a user-interface where users can input their own reviews/businesses/etc to our database. 
 
 Problem we are addressing: 
 
