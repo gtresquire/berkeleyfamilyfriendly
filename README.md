@@ -26,9 +26,11 @@ Our baseline goal is to have a map with a curated list of places that have certa
 
 
 APIs to be Used:
-Google Maps
+Google Maps, 
 Firebase
 
+
+=================================================================================================
 
 
 Presentation Notes:
@@ -37,7 +39,7 @@ Amy:  Present the problem from a parents point of view.  Follow up with mentioni
 
 Show a demo of searching for a drive thru search on google maps. 
 
-When I search for drive thru food or drive thru coffee many business chains are tagged even when they are not a drive thru location. Wouldn’t it be nice to have an accurate filter? This is where ParentMaps comes in.  What other features to parents care about?  Opening story about a cafe here in Berkeley with the filthy bathroom and no baby changer.  I am on a road trip with 3 gas stations to choose from so I pick the biggest cleanest looking one expecting a nice bathroom with a changer.  Wouldn’t it be nice know where to go before parking and getting the little ones out of the carseats? Parent maps is here to help.  Reviews and information parents with young families need, without the rest. User verified, user populated data.  
+When I search for drive thru food or drive thru coffee many business chains are tagged even when they are not a drive thru location. Wouldn’t it be nice to have an accurate filter? This is where ParentMaps comes in.  What other features do parents care about?  Opening story about a cafe here in Berkeley with the filthy bathroom and no baby changer.  I am on a road trip with 3 gas stations to choose from so I pick the biggest cleanest looking one expecting a nice bathroom with a changer.  Wouldn’t it be nice know where to go before parking and getting the little ones out of the carseats? Parent maps is here to help.  Reviews and information parents with young families need, without the rest. User verified, user populated data.  
 
 Wassim: -General user demo.  Discussion ui/ux design, how layout supports functionality and purpose of the site.
 
@@ -58,11 +60,10 @@ Other features (not reliant on Google API)
 
 Sorting by category is on our page, but not functioning yet.  
 
-
 Log in to member portal for interaction between members, Users/member could communicate with each other to arrange play dates, meetups, and generally share info.  
 
 We plan to populate 5 to 10 default pins for major markets.  We can also approach local businesses to sponsor adding their pin as a default.  The idea is that as users add pins the site will grow organically and the content will become more useful.  This site is easily scalable to any US cities, and possibly anywhere in the world.
 
 Conclusion:
 
-ParentMaps is a Disruptive/Game Changing application.  This site will motivate businesses to improve their family friendly features so that their business is represented positively on the map.  Advertising and marketing opportunities will fit naturally within the site model, for products, services, and events catering to the needs of families.
+ParentMaps is a Disruptive/Game Changing application.  This site will motivate businesses to improve their family friendly features so that their business is represented positively on the map.  Advertising and marketing opportunities will fit naturally within the site model for advertising products, services, and events catering to the needs of families.
