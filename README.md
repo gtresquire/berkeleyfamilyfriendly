@@ -1,5 +1,5 @@
 # Parent Maps
-URL:  https://gtresquire.github.io/berkeleyfamilyfriendly/
+URL:   https://rexstrider.github.io/Parent-Maps/
 
 
 Project 1 Proposal:
