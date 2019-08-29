@@ -2,13 +2,13 @@
 URL:   https://rexstrider.github.io/Parent-Maps/
 
 
-## Project 1 Proposal:
+## Project 1 Proposal
 
 ### Parental Map Community
 
 Team Members: Wassim, Amy, Aaron, Greg
 
-### Project Description: 
+### Project Description
 
 We are creating a community database that displays information of places that have family-friendly features: drive-thrus, parking, baby-changing stations. In addition to showing a map of locations with these features, we will add a user-interface where users can input their own reviews/businesses/etc to our database. 
 
@@ -16,7 +16,7 @@ Problem we are addressing:
 
 Parents have a lack of time and information to efficiently/easily plan activities with their families. As such, we are giving parents access to information to facilitate their lives and overcome logistical obstacles. We are creating community database that displays an interactive map of places with family-friendly features: drive-thrus, parking, baby-changing stations. In addition to showing a map of curated locations with these features, we are creating a community-based platform where users can share their own locations/reviews to our database.
 
-### Our Target Audience:
+### Our Target Audience
 
 We are trying to help busy parents who are looking for resources to streamline and organize  family activities. 
 
@@ -33,7 +33,7 @@ Firebase
 #
 
 
-### Presentation Notes:
+### Presentation Notes
 
 Amy:  Present the problem from a parents point of view.  Follow up with mentioning the situations parents are in when the kids are sleeping in the car.  Personally I would drive up to 20 minutes out of the way to find a drive-thru, and I have done so, just to show up at a coffee shop without a drive-thru.  
 
