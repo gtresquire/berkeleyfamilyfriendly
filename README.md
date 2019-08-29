@@ -48,12 +48,12 @@ Aaron:  Description of technology used and technical functionality.
 Greg:  Future features:
 
 ### Google API functions
-    1. Geolocation, for mobile this would allow centering of the map based on user’s location.  
+   1. Geolocation, for mobile this would allow centering of the map based on user’s location.  
 
-    2. Google Directions API;  Would allow for mapping from current location to target location (directions to a given pin)
+   2. Google Directions API;  Would allow for mapping from current location to target location (directions to a given pin)
 
-    3. Custom Info Windows - Would show a popup info window when clicking or hovering over the pin.  Window could show business name and star rating system based on user input ratings.  Our map has default info windows from Google but these are only available if the location is already in Google’s default map database, and these only show the business or location name.
-    
+   3. Custom Info Windows - Would show a popup info window when clicking or hovering over the pin.  Window could show business name and star rating system based on user input ratings.  Our map has default info windows from Google but these are only available if the location is already in Google’s default map database, and these only show the business or location name.
+
 #
 
 ### Other features (not reliant on Google API)
