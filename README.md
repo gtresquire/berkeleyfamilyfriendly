@@ -20,8 +20,6 @@ Parents have a lack of time and information to efficiently/easily plan activitie
 
 We are trying to help busy parents who are looking for resources to streamline and organize  family activities. 
 
-MVP:
-
 Our baseline goal is to have a map with a curated list of places that have certain family-friendly features. We also want to create an interactive platform where users may add additional locations and reviews to our existing library in real time. These features will be a resource to easily obtain information about local activities and places to help parents plan activities with their families. This will also unite the community by providing a space to share helpful information. 
 
 
