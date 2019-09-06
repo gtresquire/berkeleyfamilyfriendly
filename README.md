@@ -25,9 +25,9 @@ MVP:
 Our baseline goal is to have a map with a curated list of places that have certain family-friendly features. We also want to create an interactive platform where users may add additional locations and reviews to our existing library in real time. These features will be a resource to easily obtain information about local activities and places to help parents plan activities with their families. This will also unite the community by providing a space to share helpful information. 
 
 
-APIs to be Used:
-Google Maps, 
-Firebase
+### Built with
+ - [Google Maps API](https://cloud.google.com/maps-platform/)
+ - [Firebase](https://firebase.google.com/)
 
 
 #
