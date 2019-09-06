@@ -65,3 +65,6 @@ We plan to populate 5 to 10 default pins for major markets.  We can also approac
 ## Conclusion
 
 ParentMaps is a Disruptive/Game Changing application.  This site will motivate businesses to improve or add family friendly features so that their business is represented positively on the site.  Advertising and marketing opportunities will fit naturally within the site model to advertise products, services, and events catering to the needs of families.
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details
